@@ -238,8 +238,9 @@ body {
 }
 
 .hero-photo {
-    width:500px;
-    height: 500px;
+    width:100%;
+    max-width: 500px;
+    height: auto;
     border-radius: 40%;
     object-fit: cover;
     border: 1px solid black;
@@ -1735,4 +1736,12 @@ body {
       .dot.filled {
         background-color: #f2f2f2; /* blue filled dots */
       }
-      
+    
+      /* Accessible focus styles */
+    :focus-visible {
+    outline: 3px solid #f2f2f2;
+    outline-offset: 2px;
+    }
+    a:focus-visible, button:focus-visible {
+    border-radius: 6px;
+    }

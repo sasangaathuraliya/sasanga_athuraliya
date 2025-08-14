@@ -393,123 +393,123 @@ let currentImageSet = [];
 const imageSets = {
     // Academic Project Images
     automotiveLabImages: [
-        'CAD Projects/Academic Projects/Automotive Laboratory Rack/1.png',
-        'CAD Projects/Academic Projects/Automotive Laboratory Rack/2.png',
-        'CAD Projects/Academic Projects/Automotive Laboratory Rack/3.png',
-        'CAD Projects/Academic Projects/Automotive Laboratory Rack/4.png'
+        'Files/Academic Projects/Automotive Laboratory Rack/1.png',
+        'Files/Academic Projects/Automotive Laboratory Rack/2.png',
+        'Files/Academic Projects/Automotive Laboratory Rack/3.png',
+        'Files/Academic Projects/Automotive Laboratory Rack/4.png'
     ],
     dashboardPanelImages: [
-        'CAD Projects/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG',
-        'CAD Projects/Academic Projects/Dashboard Panel for Engine Test Bench/2.JPG',
-        'CAD Projects/Academic Projects/Dashboard Panel for Engine Test Bench/Screenshot 2024-10-16 100713.png'
+        'Files/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG',
+        'Files/Academic Projects/Dashboard Panel for Engine Test Bench/2.JPG',
+        'Files/Academic Projects/Dashboard Panel for Engine Test Bench/Screenshot 2024-10-16 100713.png'
     ],
     engineTestBenchImages: [
-        'CAD Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png',
-        'CAD Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054052.png',
-        'CAD Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054115.png'
+        'Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png',
+        'Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054052.png',
+        'Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054115.png'
     ],
     sinkTubImages: [
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095520.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095706.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095901.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100048.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100202.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095737.png',
-        'CAD Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100237.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095520.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095706.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095901.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100048.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100202.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095737.png',
+        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100237.png',
 
     ],
     pulleySystemImages: [
-        'CAD Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png',
-        'CAD Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054409.png'
+        'Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png',
+        'Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054409.png'
     ],
     f1CarImages: [
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/1.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/2.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/3.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/4.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/5.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/6.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/7.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/9.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/10.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/11.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/12.png',
-        'CAD Projects/Academic Projects/F1 Car for Simulation Purposes/13.png'
+        'Files/Academic Projects/F1 Car for Simulation Purposes/1.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/2.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/3.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/4.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/5.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/6.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/7.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/9.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/10.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/11.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/12.png',
+        'Files/Academic Projects/F1 Car for Simulation Purposes/13.png'
 
     ],
     inlineEngineImages: [
-        'CAD Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png',
-        'CAD Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/2.png',
-        'CAD Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/3.png',
-        'CAD Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/4.jpg',
+        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png',
+        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/2.png',
+        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/3.png',
+        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/4.jpg',
 
 
     ],
     plasticBoatImages: [
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/1.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/2.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/3.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/4.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/5.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/6.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/7.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/8.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/9.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/10.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/11.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/12.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/13.png',
-        'CAD Projects/Academic Projects/Plastic Extractor Boat/14.png',
+        'Files/Academic Projects/Plastic Extractor Boat/1.png',
+        'Files/Academic Projects/Plastic Extractor Boat/2.png',
+        'Files/Academic Projects/Plastic Extractor Boat/3.png',
+        'Files/Academic Projects/Plastic Extractor Boat/4.png',
+        'Files/Academic Projects/Plastic Extractor Boat/5.png',
+        'Files/Academic Projects/Plastic Extractor Boat/6.png',
+        'Files/Academic Projects/Plastic Extractor Boat/7.png',
+        'Files/Academic Projects/Plastic Extractor Boat/8.png',
+        'Files/Academic Projects/Plastic Extractor Boat/9.png',
+        'Files/Academic Projects/Plastic Extractor Boat/10.png',
+        'Files/Academic Projects/Plastic Extractor Boat/11.png',
+        'Files/Academic Projects/Plastic Extractor Boat/12.png',
+        'Files/Academic Projects/Plastic Extractor Boat/13.png',
+        'Files/Academic Projects/Plastic Extractor Boat/14.png',
     ],
     shockWheelImages: [
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/1.png',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/2.png',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/3.png',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/4.png',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/5.jpg',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/6.jpg',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/7.jpg',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/8.jpg',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/9.jpg',
-        'CAD Projects/Academic Projects/Shock Spoke Wheel Mechanism/10.png',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/1.png',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/2.png',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/3.png',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/4.png',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/5.jpg',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/6.jpg',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/7.jpg',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/8.jpg',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/9.jpg',
+        'Files/Academic Projects/Shock Spoke Wheel Mechanism/10.png',
     ],
     // Client Project Images
     sinhalaCakeCutterImages: [
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/1.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/2.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/3.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/4.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/5.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/6.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/7.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/8.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/9.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/10.png',
-        'CAD Projects/Client Projects/Sinhala Letter Cake Cutter/11.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/1.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/2.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/3.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/4.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/5.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/6.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/7.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/8.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/9.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/10.png',
+        'Files/Client Projects/Sinhala Letter Cake Cutter/11.png',
     ],
     tableDecorationStandImages: [
-        'CAD Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png',
-        'CAD Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052510.png',
-        'CAD Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052528.png'
+        'Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png',
+        'Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052510.png',
+        'Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052528.png'
     ],
     tracRideEnclosureImages: [
-        'CAD Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png',
-        'CAD Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051833.png',
-        'CAD Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 052110.png'
+        'Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png',
+        'Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051833.png',
+        'Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 052110.png'
     ],
     tunnelSuckingMechanismImages: [
-        'CAD Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png',
-        'CAD Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052843.png',
-        'CAD Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052917.png',
-        'CAD Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052925.png'
+        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png',
+        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052843.png',
+        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052917.png',
+        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052925.png'
     ],
     thermalCollectorImages: [
-        'CAD Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png',
-        'CAD Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054818.png',
-        'CAD Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054823.png',
-        'CAD Projects/Client Projects/Thermal Collector/1.jpg',
-        'CAD Projects/Client Projects/Thermal Collector/2.jpg'
+        'Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png',
+        'Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054818.png',
+        'Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054823.png',
+        'Files/Client Projects/Thermal Collector/1.jpg',
+        'Files/Client Projects/Thermal Collector/2.jpg'
         
 
     ]

@@ -194,29 +194,46 @@ function updateFloatingShapes() {
     });
 }
 
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
+// Typing effect for hero title (idempotent + fast start)
+function typeWriter(el, text, speed = 80) {
+  let i = 0;
+  el.textContent = ''; // start empty
+  const tick = () => {
+    if (i < text.length) {
+      el.textContent += text.charAt(i++);
+      setTimeout(tick, speed);
     }
-    
-    type();
+  };
+  tick();
 }
 
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    const originalText = heroTitle.textContent;
-    setTimeout(() => {
-        typeWriter(heroTitle, originalText, 80);
-    }, 500);
+// Start when DOM is ready (no image wait)
+document.addEventListener('DOMContentLoaded', () => {
+  const heroTitle = document.querySelector('.hero-title');
+  if (!heroTitle) return;
+
+  // Avoid double-running on hot reloads/back nav
+  if (heroTitle.dataset.typed === '1') return;
+  heroTitle.dataset.typed = '1';
+
+  const originalText = heroTitle.textContent.trim();
+  heroTitle.setAttribute('aria-label', originalText);   // screen readers still know the text
+  heroTitle.classList.add('typing-visible');            // reveal now (CSS below will hide by default)
+  typeWriter(heroTitle, originalText, 80);
+});
+
+// Fade in hero image when loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const heroImage = document.querySelector('.hero-photo');
+  if (!heroImage) return;
+
+  if (heroImage.complete) {
+    heroImage.classList.add('visible');
+  } else {
+    heroImage.addEventListener('load', () => {
+      heroImage.classList.add('visible');
+    }, { once: true });
+  }
 });
 
 // Scroll event listeners

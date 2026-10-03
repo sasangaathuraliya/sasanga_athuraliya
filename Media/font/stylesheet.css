@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-BoldItalic.eot');
+    src: local('SKODA Next Bold Italic'), local('SKODANext-BoldItalic'),
+        url('SKODANext-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-BoldItalic.woff2') format('woff2'),
+        url('SKODANext-BoldItalic.woff') format('woff'),
+        url('SKODANext-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-LightItalic.eot');
+    src: local('SKODA Next Light Italic'), local('SKODANext-LightItalic'),
+        url('SKODANext-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-LightItalic.woff2') format('woff2'),
+        url('SKODANext-LightItalic.woff') format('woff'),
+        url('SKODANext-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-Black.eot');
+    src: local('SKODA Next Black'), local('SKODANext-Black'),
+        url('SKODANext-Black.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-Black.woff2') format('woff2'),
+        url('SKODANext-Black.woff') format('woff'),
+        url('SKODANext-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-BlackItalic.eot');
+    src: local('SKODA Next Black Italic'), local('SKODANext-BlackItalic'),
+        url('SKODANext-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-BlackItalic.woff2') format('woff2'),
+        url('SKODANext-BlackItalic.woff') format('woff'),
+        url('SKODANext-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-Bold.eot');
+    src: local('SKODA Next Bold'), local('SKODANext-Bold'),
+        url('SKODANext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-Bold.woff2') format('woff2'),
+        url('SKODANext-Bold.woff') format('woff'),
+        url('SKODANext-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SKODA Next Black Expanded';
+    src: url('SKODANext-BlackExpanded.eot');
+    src: local('SKODA Next Black Expanded'), local('SKODANext-BlackExpanded'),
+        url('SKODANext-BlackExpanded.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-BlackExpanded.woff2') format('woff2'),
+        url('SKODANext-BlackExpanded.woff') format('woff'),
+        url('SKODANext-BlackExpanded.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-Regular.eot');
+    src: local('SKODA Next'), local('SKODANext-Regular'),
+        url('SKODANext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-Regular.woff2') format('woff2'),
+        url('SKODANext-Regular.woff') format('woff'),
+        url('SKODANext-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-Italic.eot');
+    src: local('SKODA Next Italic'), local('SKODANext-Italic'),
+        url('SKODANext-Italic.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-Italic.woff2') format('woff2'),
+        url('SKODANext-Italic.woff') format('woff'),
+        url('SKODANext-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SKODA Next';
+    src: url('SKODANext-Light.eot');
+    src: local('SKODA Next Light'), local('SKODANext-Light'),
+        url('SKODANext-Light.eot?#iefix') format('embedded-opentype'),
+        url('SKODANext-Light.woff2') format('woff2'),
+        url('SKODANext-Light.woff') format('woff'),
+        url('SKODANext-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+

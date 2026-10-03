@@ -1,10 +1,8 @@
 // DOM Elements
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
-const contactForm = document.getElementById('contact-form');
-const submitBtn = document.getElementById('submit-btn');
 const backToTopBtn = document.getElementById('back-to-top');
-const scrollProgress = document.querySelector('.scroll-progress');
+const scrollProgressBar = document.getElementById('scroll-progress');
 
 // Navigation Toggle
 hamburger.addEventListener('click', () => {
@@ -20,15 +18,15 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Scroll Progress Bar
+// Back to Top Button
+// Fill the top progress bar in step with how far the page is scrolled
 function updateScrollProgress() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    scrollProgress.style.width = scrollPercent + '%';
+    if (!scrollProgressBar) return;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    scrollProgressBar.style.transform = 'scaleX(' + progress + ')';
 }
 
-// Back to Top Button
 function toggleBackToTop() {
     if (window.scrollY > 400) {
         backToTopBtn.classList.add('show');
@@ -65,15 +63,7 @@ function observeElements() {
         observer.observe(item);
     });
 
-    // Project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        observer.observe(card);
-    });
 
-    // Timeline items
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        observer.observe(item);
-    });
 
     // General fade-in elements
     document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(element => {
@@ -83,60 +73,6 @@ function observeElements() {
 
 // Project Filtering - Integrated with pagination system
 // This will be handled by the pagination system below
-
-// Contact Form Submission with Spinner
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-
-    // Show spinner and disable button
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnSpinner = submitBtn.querySelector('.btn-spinner');
-    
-    btnText.style.display = 'none';
-    btnSpinner.style.display = 'inline-block';
-    submitBtn.disabled = true;
-
-    try {
-        // Simulate API call with timeout
-        await new Promise(resolve => setTimeout(resolve, 2500));
-
-        // Success state
-        btnSpinner.style.display = 'none';
-        btnText.textContent = 'Message Sent!';
-        btnText.style.display = 'inline-block';
-        submitBtn.style.background = '#4CAF50';
-
-        // Reset form
-        contactForm.reset();
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            btnText.textContent = 'Send Message';
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-        }, 3000);
-
-    } catch (error) {
-        // Error state
-        btnSpinner.style.display = 'none';
-        btnText.textContent = 'Error! Try Again';
-        btnText.style.display = 'inline-block';
-        submitBtn.style.background = '#f44336';
-        submitBtn.disabled = false;
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            btnText.textContent = 'Send Message';
-            submitBtn.style.background = '';
-        }, 3000);
-    }
-});
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -161,8 +97,76 @@ function staggerProjectCards() {
     });
 }
 
-// Active navigation link highlighting
+
+// Active navigation link highlighting with a stretching underline
+const navUnderline = document.createElement('div');
+navUnderline.className = 'nav-underline';
+navMenu.appendChild(navUnderline);
+
+let underlineLeft = 0;
+let underlineWidth = 0;
+let underlineBusy = false;
+let underlinePending = null;
+let navLockUntil = 0;
+
+function setUnderline(left, width, duration) {
+    navUnderline.style.transition = duration ? `left ${duration}ms ease, width ${duration}ms ease` : 'none';
+    navUnderline.style.left = left + 'px';
+    navUnderline.style.width = width + 'px';
+}
+
+function placeUnderline(link) {
+    if (!link) return;
+    underlineLeft = link.offsetLeft;
+    underlineWidth = link.offsetWidth;
+    setUnderline(underlineLeft, underlineWidth, 0);
+}
+
+function moveUnderline(link) {
+    if (!link) return;
+    if (underlineBusy) {
+        underlinePending = link;
+        return;
+    }
+    const newLeft = link.offsetLeft;
+    const newWidth = link.offsetWidth;
+    if (newLeft === underlineLeft && newWidth === underlineWidth) return;
+
+    underlineBusy = true;
+    if (newLeft >= underlineLeft) {
+        // Stretch to the right, then shrink onto the new link
+        setUnderline(underlineLeft, (newLeft - underlineLeft) + newWidth, 300);
+    } else {
+        // Stretch to the left, then shrink onto the new link
+        setUnderline(newLeft, (underlineLeft - newLeft) + underlineWidth, 300);
+    }
+    setTimeout(() => {
+        setUnderline(newLeft, newWidth, 150);
+        setTimeout(() => {
+            underlineLeft = newLeft;
+            underlineWidth = newWidth;
+            underlineBusy = false;
+            if (underlinePending) {
+                const next = underlinePending;
+                underlinePending = null;
+                moveUnderline(next);
+            }
+        }, 150);
+    }, 300);
+}
+
+function setActiveNavLink(link) {
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (link && link.classList.contains('active')) return;
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (link) {
+        link.classList.add('active');
+        moveUnderline(link);
+    }
+}
+
 function updateActiveNavLink() {
+    if (Date.now() < navLockUntil) return; // a menu click is scrolling to its section
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -174,14 +178,25 @@ function updateActiveNavLink() {
         }
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+    const activeLink = Array.from(navLinks).find(l => l.getAttribute('href') === `#${current}`);
+    setActiveNavLink(activeLink || null);
 }
 
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navLockUntil = Date.now() + 900;
+        setActiveNavLink(link);
+    });
+});
+
+function positionUnderlineInitially() {
+    const active = document.querySelector('.nav-link.active') || document.querySelector('.nav-link');
+    if (active && !document.querySelector('.nav-link.active')) active.classList.add('active');
+    placeUnderline(active);
+}
+document.addEventListener('DOMContentLoaded', positionUnderlineInitially);
+window.addEventListener('load', positionUnderlineInitially);
+window.addEventListener('resize', positionUnderlineInitially);
 // Parallax effect for floating shapes
 function updateFloatingShapes() {
     const shapes = document.querySelectorAll('.floating-shape');
@@ -194,51 +209,48 @@ function updateFloatingShapes() {
     });
 }
 
-// Typing effect for hero title (idempotent + fast start)
-function typeWriter(el, text, speed = 80) {
-  let i = 0;
-  el.textContent = ''; // start empty
-  const tick = () => {
-    if (i < text.length) {
-      el.textContent += text.charAt(i++);
-      setTimeout(tick, speed);
+// Typing effect for hero title
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
     }
-  };
-  tick();
+    
+    type();
 }
 
-// Start when DOM is ready (no image wait)
-document.addEventListener('DOMContentLoaded', () => {
-  const heroTitle = document.querySelector('.hero-title');
-  if (!heroTitle) return;
-
-  // Avoid double-running on hot reloads/back nav
-  if (heroTitle.dataset.typed === '1') return;
-  heroTitle.dataset.typed = '1';
-
-  const originalText = heroTitle.textContent.trim();
-  heroTitle.setAttribute('aria-label', originalText);   // screen readers still know the text
-  heroTitle.classList.add('typing-visible');            // reveal now (CSS below will hide by default)
-  typeWriter(heroTitle, originalText, 80);
-});
-
-// Fade in hero image when loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const heroImage = document.querySelector('.hero-photo');
-  if (!heroImage) return;
-
-  if (heroImage.complete) {
-    heroImage.classList.add('visible');
-  } else {
-    heroImage.addEventListener('load', () => {
-      heroImage.classList.add('visible');
-    }, { once: true });
-  }
+// Initialize typing effect when page loads: line 1, then line 2
+window.addEventListener('DOMContentLoaded', () => {
+    const lines = Array.from(document.querySelectorAll('.hero-title .title-line'));
+    const texts = lines.map(l => l.textContent);
+    lines.forEach(l => { l.textContent = ''; });
+    let current = 0;
+    function typeNext() {
+        if (current >= lines.length) return;
+        const line = lines[current];
+        const text = texts[current];
+        let i = 0;
+        (function type() {
+            if (i < text.length) {
+                line.textContent += text.charAt(i++);
+                setTimeout(type, 80);
+            } else {
+                current++;
+                setTimeout(typeNext, 250);
+            }
+        })();
+    }
+    window.addEventListener('siteLoaded', () => setTimeout(typeNext, 300), { once: true });
 });
 
 // Scroll event listeners
 window.addEventListener('scroll', () => {
-    updateScrollProgress();
     toggleBackToTop();
     updateActiveNavLink();
     updateFloatingShapes();
@@ -304,14 +316,13 @@ function throttle(func, wait, options) {
 
 // Apply throttling to scroll events
 const throttledScroll = throttle(() => {
-    updateScrollProgress();
     toggleBackToTop();
     updateActiveNavLink();
     updateFloatingShapes();
+    updateScrollProgress();
 }, 16); // ~60fps
 
 window.removeEventListener('scroll', () => {
-    updateScrollProgress();
     toggleBackToTop();
     updateActiveNavLink();
     updateFloatingShapes();
@@ -319,9 +330,13 @@ window.removeEventListener('scroll', () => {
 
 window.addEventListener('scroll', throttledScroll);
 
+// The page can load part-way down, and a resize changes how far there is to scroll
+window.addEventListener('resize', updateScrollProgress);
+
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    updateScrollProgress();
 });
 
 // Easter egg - Konami code
@@ -410,123 +425,158 @@ let currentImageSet = [];
 const imageSets = {
     // Academic Project Images
     automotiveLabImages: [
-        'Files/Academic Projects/Automotive Laboratory Rack/1.png',
-        'Files/Academic Projects/Automotive Laboratory Rack/2.png',
-        'Files/Academic Projects/Automotive Laboratory Rack/3.png',
-        'Files/Academic Projects/Automotive Laboratory Rack/4.png'
+        'Projects/Academic Projects/Automotive Laboratory Rack/1.png',
+        'Projects/Academic Projects/Automotive Laboratory Rack/2.png',
+        'Projects/Academic Projects/Automotive Laboratory Rack/3.png',
+        'Projects/Academic Projects/Automotive Laboratory Rack/4.png'
     ],
     dashboardPanelImages: [
-        'Files/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG',
-        'Files/Academic Projects/Dashboard Panel for Engine Test Bench/2.JPG',
-        'Files/Academic Projects/Dashboard Panel for Engine Test Bench/Screenshot 2024-10-16 100713.png'
+        'Projects/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG',
+        'Projects/Academic Projects/Dashboard Panel for Engine Test Bench/2.JPG',
+        'Projects/Academic Projects/Dashboard Panel for Engine Test Bench/Screenshot 2024-10-16 100713.png'
     ],
     engineTestBenchImages: [
-        'Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png',
-        'Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054052.png',
-        'Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054115.png'
+        'Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png',
+        'Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054052.png',
+        'Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054115.png'
     ],
     sinkTubImages: [
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095520.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095706.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095901.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100048.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100202.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095737.png',
-        'Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100237.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095520.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095706.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095901.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100048.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100202.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095737.png',
+        'Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100237.png',
 
     ],
     pulleySystemImages: [
-        'Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png',
-        'Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054409.png'
+        'Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png',
+        'Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054409.png'
     ],
     f1CarImages: [
-        'Files/Academic Projects/F1 Car for Simulation Purposes/1.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/2.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/3.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/4.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/5.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/6.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/7.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/9.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/10.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/11.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/12.png',
-        'Files/Academic Projects/F1 Car for Simulation Purposes/13.png'
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/1.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/2.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/3.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/4.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/5.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/6.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/7.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/9.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/10.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/11.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/12.png',
+        'Projects/Academic Projects/F1 Car for Simulation Purposes/13.png'
 
     ],
     inlineEngineImages: [
-        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png',
-        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/2.png',
-        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/3.png',
-        'Files/Academic Projects/Inline Four Cylinder Engine Sample Design/4.jpg',
+        'Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png',
+        'Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/2.png',
+        'Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/3.png',
+        'Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/4.jpg',
 
 
     ],
     plasticBoatImages: [
-        'Files/Academic Projects/Plastic Extractor Boat/1.png',
-        'Files/Academic Projects/Plastic Extractor Boat/2.png',
-        'Files/Academic Projects/Plastic Extractor Boat/3.png',
-        'Files/Academic Projects/Plastic Extractor Boat/4.png',
-        'Files/Academic Projects/Plastic Extractor Boat/5.png',
-        'Files/Academic Projects/Plastic Extractor Boat/6.png',
-        'Files/Academic Projects/Plastic Extractor Boat/7.png',
-        'Files/Academic Projects/Plastic Extractor Boat/8.png',
-        'Files/Academic Projects/Plastic Extractor Boat/9.png',
-        'Files/Academic Projects/Plastic Extractor Boat/10.png',
-        'Files/Academic Projects/Plastic Extractor Boat/11.png',
-        'Files/Academic Projects/Plastic Extractor Boat/12.png',
-        'Files/Academic Projects/Plastic Extractor Boat/13.png',
-        'Files/Academic Projects/Plastic Extractor Boat/14.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/1.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/2.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/3.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/4.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/5.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/6.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/7.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/8.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/9.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/10.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/11.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/12.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/13.png',
+        'Projects/Academic Projects/Plastic Extractor Boat/14.png',
     ],
     shockWheelImages: [
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/1.png',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/2.png',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/3.png',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/4.png',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/5.jpg',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/6.jpg',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/7.jpg',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/8.jpg',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/9.jpg',
-        'Files/Academic Projects/Shock Spoke Wheel Mechanism/10.png',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/1.png',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/2.png',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/3.png',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/4.png',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/5.jpg',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/6.jpg',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/7.jpg',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/8.jpg',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/9.jpg',
+        'Projects/Academic Projects/Shock Spoke Wheel Mechanism/10.png',
     ],
     // Client Project Images
     sinhalaCakeCutterImages: [
-        'Files/Client Projects/Sinhala Letter Cake Cutter/1.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/2.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/3.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/4.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/5.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/6.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/7.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/8.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/9.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/10.png',
-        'Files/Client Projects/Sinhala Letter Cake Cutter/11.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/2.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/3.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/4.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/5.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/6.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/7.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/9.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/10.png',
+        'Projects/Client Projects/Sinhala Letter Cake Cutter/11.png',
     ],
     tableDecorationStandImages: [
-        'Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png',
-        'Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052510.png',
-        'Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052528.png'
+        'Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png',
+        'Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052510.png',
+        'Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052528.png'
     ],
     tracRideEnclosureImages: [
-        'Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png',
-        'Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051833.png',
-        'Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 052110.png'
+        'Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png',
+        'Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051833.png',
+        'Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 052110.png'
     ],
     tunnelSuckingMechanismImages: [
-        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png',
-        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052843.png',
-        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052917.png',
-        'Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052925.png'
+        'Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png',
+        'Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052843.png',
+        'Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052917.png',
+        'Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052925.png'
+    ],
+    // Final-year projects
+    biomorphicChassisImages: [
+        'Projects/Academic Projects/FYRP/Image9.png',
+        'Projects/Academic Projects/FYRP/Image11.png',
+        'Projects/Academic Projects/FYRP/Image12.png',
+        'Projects/Academic Projects/FYRP/Image13.png',
+        'Projects/Academic Projects/FYRP/Image14.png',
+        'Projects/Academic Projects/FYRP/Image15.png',
+        'Projects/Academic Projects/FYRP/Image16.png',
+        'Projects/Academic Projects/FYRP/Image17.png'
+    ],
+    phoneSimImages: [
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-23 215031.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-23 230033.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060808.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060816.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060835.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060926.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060934.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060945.png',
+        'Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060954.png'
+    ],
+    airDuctImages: [
+        'Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214853.png',
+        'Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214901.png',
+        'Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214910.png',
+        'Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214916.png',
+        'Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214923.png'
+    ],
+    enclosureImages: [
+        'Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203939.png',
+        'Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203946.png',
+        'Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203953.png',
+        'Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 204023.png',
+        'Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 204032.png',
+        'Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 204042.png'
     ],
     thermalCollectorImages: [
-        'Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png',
-        'Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054818.png',
-        'Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054823.png',
-        'Files/Client Projects/Thermal Collector/1.jpg',
-        'Files/Client Projects/Thermal Collector/2.jpg'
+        'Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png',
+        'Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054818.png',
+        'Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054823.png',
+        'Projects/Client Projects/Thermal Collector/1.jpg',
+        'Projects/Client Projects/Thermal Collector/2.jpg'
         
 
     ]
@@ -536,7 +586,7 @@ function openImageViewer(element, imageSetName) {
     const img = element.querySelector('img');
     const imageSrc = img.src;
     currentImageSet = imageSets[imageSetName] || [];
-    currentImageIndex = currentImageSet.findIndex(src => src === imageSrc);
+    currentImageIndex = currentImageSet.findIndex(src => decodeURIComponent(imageSrc).endsWith(src));
     
     if (currentImageIndex === -1) {
         currentImageIndex = 0;
@@ -604,7 +654,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Project Pagination ---
 (function() {
-    const projectsPerPage = 3;
+    const projectsPerPage = 4;
     const projectGrid = document.querySelector('.projects-grid');
     const paginationContainer = document.querySelector('.project-pagination');
     if (!projectGrid || !paginationContainer) return;
@@ -652,44 +702,65 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentFilter = getCurrentFilter();
         const state = paginationState[currentFilter];
         const categoryCards = getCurrentCategoryCards();
-        
-        // Hide all cards first
+
+        // Hide all cards and section headers first
         document.querySelectorAll('.project-card').forEach(card => {
             card.style.display = 'none';
             card.classList.remove('show');
         });
-        
+
+        document.querySelectorAll('.project-section-header').forEach(header => {
+            header.style.display = 'none';
+        });
+
+        document.querySelectorAll('.projects-grid').forEach(grid => {
+            grid.style.display = 'none';
+        });
+
+        // Show grid for current category
+        const categoryGrid = document.querySelector(`.projects-grid[data-category="${currentFilter}"]`) ||
+                             document.querySelector(`.${currentFilter}-grid`);
+
+        if (categoryGrid) {
+            categoryGrid.style.display = 'flex';
+        }
+
         // Show only cards for current category and page
         categoryCards.forEach((card, idx) => {
             if (idx >= state.currentPage * projectsPerPage && idx < (state.currentPage + 1) * projectsPerPage) {
-                card.style.display = 'block';
-                setTimeout(() => card.classList.add('show'), 50);
+                card.style.display = 'flex';
+                card.style.setProperty('--delay', ((idx - state.currentPage * projectsPerPage) * 0.12) + 's');
+                void card.offsetWidth; // restart the animation
+                card.classList.add('show');
             }
         });
-        
+
         // Show message if no projects in category
-        const projectGrid = document.querySelector('.projects-grid');
-        let noProjectsMessage = projectGrid.querySelector('.no-projects-message');
-        
+        const activeGrid = categoryGrid || document.querySelector('.projects-grid');
+        let noProjectsMessage = activeGrid ? activeGrid.querySelector('.no-projects-message') : null;
+
         if (categoryCards.length === 0) {
-            if (!noProjectsMessage) {
-                noProjectsMessage = document.createElement('div');
-                noProjectsMessage.className = 'no-projects-message';
-                noProjectsMessage.innerHTML = `
-                    <div style="text-align: center; padding: 2rem; color: var(--muted);">
-                        <h3>No projects available in this category</h3>
-                        <p>Check back later for new projects!</p>
-                    </div>
-                `;
-                projectGrid.appendChild(noProjectsMessage);
+            if (activeGrid) {
+                if (!noProjectsMessage) {
+                    noProjectsMessage = document.createElement('div');
+                    noProjectsMessage.className = 'no-projects-message';
+                    noProjectsMessage.innerHTML = `
+                        <div style="text-align: center; padding: 2rem; color: var(--muted);">
+                            <h3>No projects available in this category</h3>
+                            <p>Check back later for new projects!</p>
+                        </div>
+                    `;
+                    activeGrid.appendChild(noProjectsMessage);
+                }
+                noProjectsMessage.style.display = 'block';
             }
-            noProjectsMessage.style.display = 'block';
         } else {
             if (noProjectsMessage) {
                 noProjectsMessage.style.display = 'none';
             }
         }
-        
+
+        fitCardText();
         renderPaginationDots();
         updateArrowStates();
     }
@@ -773,21 +844,62 @@ document.addEventListener('DOMContentLoaded', () => {
         initializePagination();
     });
 
-    // Also handle filter buttons that might be clicked before DOMContentLoaded
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Update active filter
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Reset pagination for new category
-            const category = button.getAttribute('data-filter');
-            updatePaginationForCategory(category);
-            showCurrentPage();
-        });
-    });
 
     // Initial render
     initializePagination();
 })();
+// Close a project modal by clicking the dark background or pressing Esc
+document.addEventListener('click', (e) => {
+    if (e.target.classList && e.target.classList.contains('modal-overlay')) {
+        closeProjectModal(e.target.id);
+    }
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.show').forEach(m => closeProjectModal(m.id));
+    }
+});
+
+// Loading screen: hide once the page has loaded (shown at least 500ms), then start the hero intro
+(function() {
+    const loader = document.getElementById('page-loader');
+    const startTime = Date.now();
+    let done = false;
+
+    function hideLoader() {
+        if (done) return;
+        done = true;
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 600);
+        }
+        document.body.classList.remove('loading');
+        window.dispatchEvent(new Event('siteLoaded'));
+    }
+
+    window.addEventListener('load', () => {
+        setTimeout(hideLoader, Math.max(0, 500 - (Date.now() - startTime)));
+    });
+    setTimeout(hideLoader, 4000); // fallback so it can never get stuck
+})();
+
+// Fit each visible card's description to the free space; "..." appears only when text is cut
+function fitCardText() {
+    document.querySelectorAll('.project-card').forEach(card => {
+        if (card.style.display === 'none') return;
+        const p = card.querySelector('.project-content p');
+        if (!p) return;
+        p.style.flex = '1 1 0';
+        p.style.height = 'auto';
+        const lineHeight = parseFloat(getComputedStyle(p).lineHeight);
+        if (!lineHeight || !p.clientHeight) return;
+        const lines = Math.max(1, Math.floor(p.clientHeight / lineHeight));
+        p.style.webkitLineClamp = lines;
+        p.style.lineClamp = lines;
+        p.style.flex = 'none';
+        p.style.height = (lines * lineHeight) + 'px';
+    });
+}
+window.addEventListener('load', fitCardText);
+window.addEventListener('resize', fitCardText);
+

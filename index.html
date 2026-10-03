@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sasanga Athuraliya - Automotive Engineering</title>
+    <link rel="icon" type="image/png" href="Media/SA.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Media/font/stylesheet.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="loading">
+    <!-- Loading screen -->
+    <div id="page-loader" class="loader-overlay">
+        <div class="loader">
+            <div class="square" id="sq1"></div>
+            <div class="square" id="sq2"></div>
+            <div class="square" id="sq3"></div>
+            <div class="square" id="sq4"></div>
+            <div class="square" id="sq5"></div>
+            <div class="square" id="sq6"></div>
+            <div class="square" id="sq7"></div>
+            <div class="square" id="sq8"></div>
+            <div class="square" id="sq9"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">SASANGA ATHURALIYA</div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
+                <a href="#about-me" class="nav-link">About me</a>
+                <a href="#background" class="nav-link">Background</a>
                 <a href="#projects" class="nav-link">Projects</a>
-                <a href="#dreams" class="nav-link">Dreams</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -27,588 +48,592 @@
         </div>
     </nav>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <img src="src/gear.png" alt="Cogwheel" class="floating-cogwheel cogwheel-1">
-            <img src="src/gear.png" alt="Cogwheel" class="floating-cogwheel cogwheel-2">
-            <img src="src/gear.png" alt="Cogwheel" class="floating-cogwheel cogwheel-3">
-            <img src="src/gear.png" alt="Cogwheel" class="floating-cogwheel cogwheel-4">
-            <img src="src/gear.png" alt="Cogwheel" class="floating-cogwheel cogwheel-5">
-        </div>
-        <div class="container">
-            <div class="hero-layout">
-                <div class="hero-image">
-                    <img src="src/bw_2.png" alt="Sasanga Athuraliya" class="hero-photo" loading="eager">
-                </div>
-                <div class="hero-content">
-                    <h1 class="hero-title">Hi, I'm Sasanga Athuraliya</h1>
-                    <p class="hero-subtitle">Automotive Engineering Undergraduate</p>
-                    <div class="hero-buttons">
-                        <a href="src/Sasanga_Athuraliya_CV.pdf" target="_blank" class="btn btn-primary">View CV</a>
-                        <a href="src/Sasanga_Athuraliya_Resume.pdf" target="_blank" class="btn btn-secondary">View Resume</a>
+    <!-- Page shell: one consistent width/gutter system for every section -->
+    <main class="site-main" id="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-image">
+                        <img src="src/bw_2.png" alt="Susanga Athuraliya" class="hero-photo">
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title" aria-label="Hi, I'm Sasanga Athuraliya"><span class="title-line">Hi, I'm</span><span class="title-line">Sasanga Athuraliya</span></h1>
+                        <p class="hero-subtitle">Automotive Engineering Undergraduate</p>
+                        <div class="hero-buttons">
+                            <a href="Resume and CV/Sasanga%20Athuraliya%20CV.pdf" target="_blank" class="btn btn-primary">View CV</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-info">
-                    <div class="info-section">
-                        <h3 style="text-align: center;">EDUCATION</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-marker" style="background: none; border: none;">
-                                    <img src="src/cinec.png" alt="CINEC Logo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(255, 251, 251, 0.133);display:block;margin:-8px auto 0 auto;background:#fff;" />
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>B.Sc. (Hons) in Automotive Engineering</h4>
-                                    <span class="timeline-date">CINEC Campus, Malabe | Oct 2022 - Present</span>
-                                    <p>Currently pursuing a comprehensive degree focused on modern automotive engineering, with hands-on projects in vehicle dynamics, powertrain systems, and sustainable technologies. Active in student engineering societies and research groups.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker" style="background: none; border: none;">
-                                    <img src="src/royal.jpg" alt="Royal College Logo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(255, 251, 251, 0.133);display:block;margin:-8px auto 0 auto;background:#fff;" />
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>G.C.E. Advanced Level</h4>
-                                    <span class="timeline-date">Royal College, Colombo 7 | Jul 2019 - Feb 2022</span>
-                                    <p>Completed A/Ls in Mathematics, Physics, and Chemistry with a strong academic record. Participated in science exhibitions and school leadership activities.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-marker" style="background: none; border: none;">
-                                    <img src="src/ananda.png" alt="Ananda College Logo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(255, 251, 251, 0.133);display:block;margin:-8px auto 0 auto;background:#fff;" />
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>G.C.E. Ordinary Level</h4>
-                                    <span class="timeline-date">Ananda College, Kottawa | Jan 2008 - Dec 2018</span>
-                                    <p>Built a strong academic foundation across all subjects, with a particular interest in science and technology. Engaged in extracurricular activities and sports.</p>
-                                </div>
-                            </div>
+        <!-- About Me Section -->
+        <section id="about-me" class="about-me">
+            <div class="container">
+                <h2 class="section-title">About me</h2>
+                <p class="aboutme-subtitle"><span class="subtitle-line">Cars and motorsport have been my passion for as long as I can remember.</span><br><span class="subtitle-line">Now, as a Sri Lankan automotive engineer, I'm building a career around exactly that.</span></p>
+
+                <div class="aboutme-row">
+                    <div class="aboutme-text">
+                        <div class="subtitle-flag-wrap"><img class="subtitle-flag" src="https://img.icons8.com/color/48/sri-lanka.png" width="48" height="48" alt="sri-lanka"></div>
+                        <p>My name is Sasanga Athuraliya, an Automotive Engineering undergraduate soon to graduate from CINEC Campus, Malabe. I'm driven by a deep interest in chassis design, aerodynamics, and automotive design, and I'm working toward a career as an Aerodynamics Engineer or Automotive Design Engineer contributing to the kind of cutting-edge vehicle innovation that first got me hooked on this field.</p>
+                    </div>
+                    <div class="aboutme-images">
+                        <img src="Media/About me/NNJ08800.jpg" alt="Sasanga Athuraliya in a suit" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="aboutme-row wide reverse">
+                    <div class="aboutme-text">
+                        <p>I take an analytical, hands-on approach to engineering problems, with proficiency in SOLIDWORKS (CSWA and CSWP certified) and CATIA, backed by practical, real-world experience gained during my traineeship at Diesel &amp; Motor Engineering PLC where I worked across commercial and passenger vehicle diagnostics, fault analysis, and service operations, including time as a Trainee Mercedes-Benz Service Advisor.</p>
+                    </div>
+                    <div class="aboutme-images">
+                        <div class="collage a">
+                            <img src="Media/About me/IMG-20260103-WA0088.jpg" alt="Sasanga Athuraliya outside the DIMO building" loading="lazy">
+                            <img src="Media/About me/IMG_6314.jpg" alt="Sasanga Athuraliya with a classic Mercedes-Benz" loading="lazy">
                         </div>
                     </div>
-                    
-                    <div class="experience-section">
-                       <h3>EXPERIENCE</h3>
-                        <div class="experience-item">
-                            <h4>Automobile Technician - Internship</h4>
-                            <strong>Diesel & Motor Engineering PLC</strong> 
-                            <p>Jul 2025 - Present</p><br/>
-                            <p>Gaining hands-on experience in vehicle diagnostics, engine systems and maintenance procedures at a leading automotive service provider.</p>
-                        </div>
-                    
-                        <div class="experience-item">
-                            <h4>President</h4>
-                            <strong>Society of Automotive Engineering, CINEC Campus, Malabe</strong>
-                            <p>Mar 2025 - Present</p><br/>
-                            <p>Co-founded and led the society to unite automotive undergraduates. Oversee events, industry connections and project development to promote automotive technical excellence.</p>
-                            
-                        </div>
-                    
-                    
-                        <div class="experience-item">
-                            <h4>Engineering Undergraduate Student Representative</h4>
-                            <p><strong>CINEC Campus</strong>
-                                <p>Oct 2022 - Present</p><br/> 
-                            <p>Act as liaison between students and faculty, addressing academic concerns, organising batch events and ensuring a positive learning environment.</p>
-                        </div>
-                    
-                        <div class="experience-item">
-                            <h4>General Member</h4>
-                            <strong>Ceylon Motor Sports Club (CMSC)</strong>
-                            <p>Apr 2024 - Present</p><br/> 
-                            <p>Volunteered as a Motorsport Scrutineer and Marshall, contributing to the safe and fair execution of national and local motorsport events.</p>
-                        </div>
+                </div>
 
-                        <div class="experience-item">
+                <div class="aboutme-row wide">
+                    <div class="aboutme-text">
+                        <p>Leadership and community have shaped my journey as much as engineering has. I co-founded and served as the inaugural President of the Society of Automotive Engineering at CINEC Campus, building the first student-led automotive organisation on campus to bridge the gap between academia and industry. I've also been an active Engineering Undergraduate Representative for four years, liaising between students and faculty while organising and running campus events. Beyond the classroom, I volunteer to officiate at local motorsport events, and I'm a committed Rotaract volunteer, having led and contributed to multiple community service and cultural initiatives recognised at district and international levels.</p>
+                    </div>
+                    <div class="aboutme-images">
+                        <div class="collage b">
+                            <img src="Media/About me/20231102_191435.jpg" alt="Sasanga Athuraliya in a Rotaract CINEC Campus shirt" loading="lazy">
+                            <img src="Media/About me/FB_IMG_1746626368528.jpg" alt="Sasanga Athuraliya marshalling at a motorsport event" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aboutme-row reverse">
+                    <div class="aboutme-text">
+                        <p>I'm always excited to connect with automotive enthusiasts, engineers, and changemakers collaborating, sharing ideas, and pushing innovation forward across motorsport and volunteer communities alike.</p>
+                    </div>
+                    <div class="aboutme-images">
+                        <img src="Media/About me/FB_IMG_1769925965011.jpg" alt="Sasanga Athuraliya officiating at a motorsport post" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="background" class="about resume">
+            <div class="container">
+                <h2 class="section-title">Background</h2>
+
+                <div class="resume-card">
+                <h3 class="resume-heading">Experience</h3>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>Engineering Undergraduate Representative</h4>
+                            <span class="resume-org">CINEC Campus, Malabe</span>
+                        </div>
+                        <span class="resume-date">Oct 2022 - Oct 2026</span>
+                    </div>
+                    <p class="resume-desc">Act as liaison between students and faculty, addressing academic concerns, organising batch events and ensuring a positive learning environment.</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
                             <h4>Assistant Club Service Director</h4>
-                            <strong>Rotaract Club of CINEC Campus</strong>
-                            <p> Jun 2023 - May 2024</p></br/> 
-                            <p>Led service initiatives and supported club operations, helping the club win recognition and awards during the year. Focused on fellowship, engagement, and impact.</p>
+                            <span class="resume-org">Rotaract Club of CINEC Campus, Malabe</span>
                         </div>
-                    
+                        <span class="resume-date">Jun 2023 - May 2024</span>
                     </div>
-                    
-                    <div class="info-section">
-                        <h3 style="text-align: center;">SKILLS</h3>
-                        <div class="skills-list">
-                            <div class="skill-block">
-                                <h4>Technical Skills</h4>
-                                <ul>
-                                    <li>Computer Aided Design (CAD)</li>
-                                    <li>Finite Element Analysis (FEA)</li>
-                                    <li>Computational Fluid Dynamics</li>
-                                    <li>Vehicle Modelling & Simulation</li>
-                                    <li>Vehicle Design & Development</li>
-                                    <li>Vehicle Testing & Validation</li>
-                                    <li>Vehicle Performance Analysis</li>
-                                    <li>Vehicle Repair & Maintenance</li>
-                                    <li>Vehicle Scanning & Diagnosing</li>
+                    <p class="resume-desc">Led service initiatives and supported club operations, helping the club win recognition and awards during the year. Focused on fellowship, engagement, and impact.</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>President</h4>
+                            <span class="resume-org">Society of Automotive Engineering, CINEC Campus, Malabe</span>
+                        </div>
+                        <span class="resume-date">Mar 2025 - June 2026</span>
+                    </div>
+                    <p class="resume-desc">Co-founded and led the society to unite automotive undergraduates. Oversee events, industry connections and project development to promote automotive technical excellence.</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>Automotive Engineering Trainee - Internship</h4>
+                            <span class="resume-org">Diesel &amp; Motor Engineering PLC, Colombo</span>
+                        </div>
+                        <span class="resume-date">Jul 2025 - Jan 2026</span>
+                    </div>
+                    <p class="resume-desc">Gaining hands-on experience in vehicle diagnostics, engine systems and maintenance procedures at a leading automotive service provider.</p>
+                </div>
 
-                                </ul>
+                </div>
+
+                <div class="resume-card">
+                <h3 class="resume-heading">Volunteer</h3>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>General Member</h4>
+                            <span class="resume-org">Ceylon Motor Sports Club (CMSC), Colombo</span>
+                        </div>
+                        <span class="resume-date">Apr 2024 - Present</span>
+                    </div>
+                    <p class="resume-desc">Volunteered as a Motorsport Scrutineer and Marshall, contributing to the safe and fair execution of national and local motorsport events.</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>General Member</h4>
+                            <span class="resume-org">Rotaract Club of CINEC, Malabe</span>
+                        </div>
+                        <span class="resume-date">Oct 2022 - May 2026</span>
+                    </div>
+                    <p class="resume-desc">Actively engaged in club activities, contributed to service projects, and promoted the values of Rotaract within our student community</p>
+                </div>
+
+                </div>
+
+                <div class="resume-card">
+                <h3 class="resume-heading">Education</h3>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>B.Sc. (Hons) in Automotive Engineering</h4>
+                            <span class="resume-org">CINEC Campus, Malabe</span>
+                        </div>
+                        <span class="resume-date">Oct 2022 - Oct 2026</span>
+                    </div>
+                    <p class="resume-desc">Currently pursuing a comprehensive degree focused on modern automotive engineering, with hands-on projects in vehicle dynamics, powertrain systems, and sustainable technologies. Active in student engineering societies and research groups.</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>G.C.E. Advanced Level Examination (2021)</h4>
+                            <span class="resume-org">Royal College, Colombo 7</span>
+                        </div>
+                        <span class="resume-date">Jul 2019 - Feb 2022</span>
+                    </div>
+                    <p class="resume-desc">Completed A/Ls in Mathematics, Physics, and Chemistry with a strong academic record. Participated in science exhibitions and school leadership activities.</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-head">
+                        <div class="resume-entry-main">
+                            <h4>G.C.E. Ordinary Level Examination (2018)</h4>
+                            <span class="resume-org">Ananda College, Kottawa</span>
+                        </div>
+                        <span class="resume-date">Jan 2008 - Dec 2018</span>
+                    </div>
+                    <p class="resume-desc">Built a strong academic foundation across all subjects, with a particular interest in science and technology. Engaged in extracurricular activities and sports.</p>
+                </div>
+
+                </div>
+
+                <div class="resume-card">
+                <h3 class="resume-heading">Skills</h3>
+                <div class="resume-skills">
+                    <div class="resume-skill-row">
+                        <h4>Technical Skills</h4>
+                        <ul class="resume-list two-col rows-5">
+                            <li>Vehicle Scanning &amp; Diagnosing</li>
+                            <li>Vehicle Repairing &amp; Maintenance</li>
+                            <li>Computer-Aided Design</li>
+                            <li>Finite Element Analysis</li>
+                            <li>Computational fluid dynamics</li>
+                            <li>Topology Optimisation</li>
+                            <li>Vehicle Modelling &amp; Simulation</li>
+                            <li>Vehicle Design &amp; Development</li>
+                            <li>Vehicle Testing &amp; Validation</li>
+                            <li>Vehicle Performance Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="resume-skill-row">
+                        <h4>Software Skills</h4>
+                        <ul class="dot-skill-list">
+                                <li><span class="skill-name">SOLIDWORKS</span><span class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></span></li>
+                                <li><span class="skill-name">Python</span><span class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></li>
+                                <li><span class="skill-name">ANSYS</span><span class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></li>
+                                <li><span class="skill-name">CATIA</span><span class="dots"><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></li>
+                                <li><span class="skill-name">Alias</span><span class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></li>
+                                <li><span class="skill-name">Blender</span><span class="dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></li>
+                        </ul>
+                    </div>
+                    <div class="resume-skill-row">
+                        <h4>Soft Skills</h4>
+                        <ul class="resume-list two-col rows-4">
+                            <li>Team Leadership</li>
+                            <li>Technical Communication</li>
+                            <li>Problem Solving</li>
+                            <li>Time Management</li>
+                            <li>Adaptability</li>
+                            <li>Creativity</li>
+                            <li>Attention to Detail</li>
+                            <li>Proactive</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-cert">
+                    <h4>CERTIFIED SOLIDWORKS PROFESSIONAL (CSWP)</h4>
+                    <img src="src/solidworks_logos.png" class="skill-block-img" alt="SolidWorks">
+                    <p class="cert-id"><a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&amp;i=C-JN2TGAZ6UR" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="swap"><span>Credential ID C-JN2TGAZ6UR</span></span><span class="swap"><span>Open cv.virtualtester.com</span></span></a></p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">PROJECTS</h2>
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="academic">Academic</button>
+                    <button class="filter-btn" data-filter="non-academic">Non-Academic</button>
+                    <button class="filter-btn" data-filter="clients">Client</button>
+                </div>
+
+                <!-- ACADEMIC PROJECTS SECTION -->
+                <div class="project-section-header" data-category="academic">
+                    <h3 class="projects-category-title">Academic Projects</h3>
+                </div>
+                <div class="projects-grid" data-category="academic">
+                    <!-- Academic Projects -->
+                    <!-- Biomorphic Chassis Project -->
+                    <div class="project-card" data-category="academic" data-project="biomorphicChassis">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/FYRP/Image11.png" alt="Biomorphic Formula Student Chassis">
+                        </div>
+                        <div class="project-content">
+                            <h3>Biomorphic Generative Design & Lattice-Integrated Formula Student Chassis</h3>
+                            <p>Individual research project enhancing stiffness-to-weight ratio through biomorphic topology optimization (CATIA V6) and lattice integration for FS-UK 2025 regulatory compliance. Target outcomes: 30% mass reduction, 2.0+ safety factor.</p>
+                            <div class="project-tools">
+                                <span class="tool">CATIA V6</span>
+                                <span class="tool">Topology Optimization</span>
+                                <span class="tool">FEA Validation</span>
+                                <span class="tool">3D Printing</span>
                             </div>
-                            <div class="skill-block">
-                                <h4>Software Skills</h4>
-                                <ul class="dot-skill-list">
-                                  <li>
-                                    <span class="skill-name">SOLIDWORKS</span>
-                                    <span class="dots">
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot"></span>
-                                    </span>
-                                  </li>
+                        </div>
+                    </div>
 
-                                  <li>
-                                    <span class="skill-name">Python</span>
-                                    <span class="dots">
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                    </span>
-                                  </li>
-                                  <li>
-                                    <span class="skill-name">ANSYS</span>
-                                    <span class="dots">
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                    </span>
-                                  </li>
-                                  <li>
-                                    <span class="skill-name">CATIA</span>
-                                    <span class="dots">
-                                      <span class="dot filled"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                    </span>
-                                  </li>
-                                  <li>
-                                    <span class="skill-name">Alias</span>
-                                    <span class="dots">
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                    </span>
-                                  </li>
-                                  <li>
-                                    <span class="skill-name">Blender</span>
-                                    <span class="dots">
-                                      <span class="dot filled"></span>
-                                      <span class="dot filled"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                      <span class="dot"></span>
-                                    </span>
-                                  </li>
-                                </ul>
-                              </div>
-                              
-                            <div class="skill-block">
-                                <h4>Soft Skills</h4>
-                                <ul>
-                                    <li>Team Leadership</li>
-                                    <li>Technical Communication</li>
-                                    <li>Problem Solving</li>
-                                    <li>Time Management</li>
-                                    <li>Adaptability</li>
-                                    <li>Creativity</li>
-                                    <li>Attention to Detail</li>
-                                    <li>Proactive</li>  
-                                </ul>
+                    <!-- PhoneSim Project -->
+                    <div class="project-card" data-category="academic" data-project="phoneSim">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060926.png" alt="PhoneSim Driving Simulation Controller">
+                        </div>
+                        <div class="project-content">
+                            <h3>PhoneSim: Smartphone-Integrated Driving Simulation Controller</h3>
+                            <p>Final year group project where I led mechanical design and system architecture as Engineering Director. Engineered a complete driving simulation system with smartphone gyroscope integration and custom steering/pedal assembly across 3 design generations.</p>
+                            <div class="project-tools">
+                                <span class="tool">ESP32-S3</span>
+                                <span class="tool">Embedded Systems</span>
+                                <span class="tool">Mechanical Design</span>
+                                <span class="tool">Leadership</span>
                             </div>
                         </div>
                     </div>
-                    <div class="skill-block-new">
-                        <h4 style="align-items: center;justify-content: center;text-align: center;">CERTIFIED SOLIDWORKS PROFESSIONAL (CSWP)</h4>
-                        <img src="src/solidworks_logos.png" class="skill-block-img" alt="SolidWorks">
+
+                    <!-- F1 Car Project -->
+                    <div class="project-card" data-category="academic" data-project="f1Car">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/2.png" alt="F1 Car Simulation">
+                        </div>
+                        <div class="project-content">
+                            <h3>F1 Model for Aerodynamic Performance Analysis Using CFD</h3>
+                            <p>Built a conceptual F1 car model and used SOLIDWORKS Flow Simulation to analyse aerodynamic behaviour, focusing on drag and downforce characteristics.</p>
+                            <div class="project-tools">
+                                <span class="tool">Aerodynamics</span>
+                                <span class="tool">F1</span>
+                                <span class="tool">Flow Simulation</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Plastic Extractor Boat Project -->
+                    <div class="project-card" data-category="academic" data-project="plasticBoat">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/4.png" alt="Plastic Extractor Boat">
+                        </div>
+                        <div class="project-content">
+                            <h3>Plastic Extractor Boat for Environmental Cleanup</h3>
+                            <p>Developed a full-scale plastic-collecting boat for waterway cleanup. Included torque and stress analysis, and tested load capacity through FEA.</p>
+                            <div class="project-tools">
+                                <span class="tool">Environmental Cleanup</span>
+                                <span class="tool">Plastic Collection</span>
+                                <span class="tool">FEA Simulation</span>
+                                <span class="tool">Boat Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shock Spoke Wheel Project -->
+                    <div class="project-card" data-category="academic" data-project="shockWheel">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/10.png" alt="Shock Spoke Wheel Mechanism">
+                        </div>
+                        <div class="project-content">
+                            <h3>Shock Spoke Wheel Mechanism for Enhanced Motorbike Suspension</h3>
+                            <p>Proposed a shock-absorbing wheel design using flexible air spokes to improve motorbike comfort and stability on poorly maintained Sri Lankan roads.</p>
+                            <div class="project-tools">
+                                <span class="tool">Suspension System</span>
+                                <span class="tool">Comfort Improvement</span>
+                                <span class="tool">Motorbike Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Automotive Laboratory Rack Project -->
+                    <div class="project-card" data-category="academic" data-project="automotiveLab">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Automotive Laboratory Rack/4.png" alt="Automotive Laboratory Rack">
+                        </div>
+                        <div class="project-content">
+                            <h3>Automotive Laboratory Storage Rack</h3>
+                            <p>Engineered a durable storage rack for automotive labs to hold vehicle parts, tools, and fluids, supports up to 80 kg on the upper shelf for safe use.</p>
+                            <div class="project-tools">
+                                <span class="tool">Workshop storage</span>
+                                <span class="tool">Load-bearing desig</span>
+                                <span class="tool">Structural Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="academic" data-project="dashboardPanel">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG" alt="Dashboard Panel">
+                        </div>
+                        <div class="project-content">
+                            <h3>Dashboard Panel for Nissan March K11 Engine Test Bench</h3>
+                            <p>Designed a waterjet-cut dashboard panel for the Nissan March K11 engine test bench, providing efficient layout and control access for ECU testing.</p>
+                            <div class="project-tools">
+                                <span class="tool">Engine Testing</span>
+                                <span class="tool">Waterjet Cutting</span>
+                                <span class="tool">ECU Interface</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="academic" data-project="engineTestBench">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png" alt="Engine Test Bench">
+                        </div>
+                        <div class="project-content">
+                            <h3>Engine Test Bench Sample Design for Nissan March K11 with Reprogrammable ECU</h3>
+                            <p>Modelled a simulation-ready sample of the Nissan K11 engine test bench with a reprogrammable ECU to assist an undergraduate research team.</p>
+                            <div class="project-tools">
+                                <span class="tool">Simulation Model</span>
+                                <span class="tool">Engine Analysis</span>
+                                <span class="tool">Reprogrammable ECU</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="academic" data-project="sinkTub">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png" alt="Sink & Tub Design">
+                        </div>
+                        <div class="project-content">
+                            <h3>Sink & Tub with Cupboard for Workshop Use</h3>
+                            <p>Designed a cleaning and storage unit for automotive workshops, combining a sink, tub, and cupboard to handle parts cleaning and item organisation.</p>
+                            <div class="project-tools">
+                                <span class="tool">Workshop Design</span>
+                                <span class="tool">Parts Storage</span>
+                                <span class="tool">Utility Sink</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="academic" data-project="pulleySystem">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png" alt="Pulley System">
+                        </div>
+                        <div class="project-content">
+                            <h3>Pulley Design for Gear Mechanism in Series Hybrid System</h3>
+                            <p>Designed a pulley-driven power transfer system for a 24V motor to the final drive in a Raspberry Pi-controlled series hybrid drivetrain project.</p>
+                            <div class="project-tools">
+                                <span class="tool">Hybrid Drivetrain</span>
+                                <span class="tool">Raspberry Pi</span>
+                                <span class="tool">Power Transmission</span>
+                                <span class="tool">Pulley Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inline 4 Cylinder Engine Project -->
+                    <div class="project-card" data-category="academic" data-project="inlineEngine">
+                        <div class="project-image">
+                            <img src="Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png" alt="Inline Four Cylinder Engine">
+                        </div>
+                        <div class="project-content">
+                            <h3>Inline Four-Cylinder Engine Sample Design for CFD Analysis</h3>
+                            <p>Developed a simplified inline four-cylinder engine model for early-stage CFD analysis of airflow and thermal patterns using SOLIDWORKS Flow.</p>
+                            <div class="project-tools">
+                                <span class="tool">Engine Modeling</span>
+                                <span class="tool">Cfd Analysis</span>
+                                <span class="tool"> Concept Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NON-ACADEMIC PROJECTS SECTION -->
+                <div class="project-section-header" data-category="non-academic">
+                    <h3 class="projects-category-title">Non-Academic Projects</h3>
+                </div>
+                <div class="projects-grid" data-category="non-academic">
+                    <!-- Non-academic projects go here -->
+                </div>
+
+                <!-- CLIENT PROJECTS SECTION -->
+                <div class="project-section-header" data-category="clients">
+                    <h3 class="projects-category-title">Client Projects</h3>
+                </div>
+                <div class="projects-grid" data-category="clients">
+                    <!-- Client/Other Projects -->
+                    <!-- Electronic Enclosure Project -->
+                    <div class="project-card" data-category="clients" data-project="tracRideEnclosure">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png" alt="TracRide Enclosure">
+                        </div>
+                        <div class="project-content">
+                            <h3>Enclosure for Control Unit</h3>
+                            <p>Designed a compact enclosure for a system control unit, optimised for airflow and protection, fabricated using 3D printing for functional testing.</p>
+                            <div class="project-tools">
+                                <span class="tool">Electronics Housing</span>
+                                <span class="tool">Airflow Design</span>
+                                <span class="tool">System Protection</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thermal Collector Project -->
+                    <div class="project-card" data-category="clients" data-project="thermalCollector">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png" alt="Thermal Collector">
+                        </div>
+                        <div class="project-content">
+                            <h3>Thermal Collector for Heat Dissipation Analysis</h3>
+                            <p>Designed a thermal collector and performed CFD simulations in SOLIDWORKS Flow Simulation to analyse heat dissipation for a client's component design.</p>
+                            <div class="project-tools">
+                                <span class="tool">Heat Dissipation</span>
+                                <span class="tool">Thermal Simulation</span>
+                                <span class="tool">CFD</span>
+                                <span class="tool">Component Cooling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Air Duct Project (placeholder) -->
+                    <div class="project-card" data-category="clients" data-project="airDuct">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214853.png" alt="Air Duct Design">
+                        </div>
+                        <div class="project-content">
+                            <h3>Air Duct Design for Electric Tray Dryer</h3>
+                            <p>This CAD project involved designing a custom transition air duct for an energy-optimized electric tray dryer for black pepper drying. The duct connects an AKKO STAR 12038 circulation fan (120×120×38mm, 220V AC, 78 CFM airflow) to the heating element enclosure. Using SolidWorks CAD software, a smooth circular-to-square geometric transition was created and fabricated via 3D printing in black PLA. This design minimizes airflow leakage and pressure drop while maximizing heat transfer efficiency. The duct enhances the coupling between the fan's 2500 RPM airflow generation and the 1500W heating element, contributing significantly to the dryer's overall energy optimization strategy and thermal performance.</p>
+                            <div class="project-tools">
+                                <span class="tool">Aerodynamics</span>
+                                <span class="tool">CFD Analysis</span>
+                                <span class="tool">3D Printing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sinhala Cake Cutters Project -->
+                    <div class="project-card" data-category="clients" data-project="sinhalaLetters">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/2.png" alt="Sinhala Letter Cake Cutters">
+                        </div>
+                        <div class="project-content">
+                            <h3>Sinhala Letter Cake Cutters for 3D Printing & Laser Cutting</h3>
+                            <p>Designed custom cake cutter templates based on Sinhala alphabet letters, optimized for 3D printing and laser cutting manufacturing methods.</p>
+                            <div class="project-tools">
+                                <span class="tool">3D Printing Design</span>
+                                <span class="tool">Laser Cutting</span>
+                                <span class="tool">Digital Fabrication</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table Decoration Stand Project -->
+                    <div class="project-card" data-category="clients" data-project="tableStand">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png" alt="Table Decoration Stand">
+                        </div>
+                        <div class="project-content">
+                            <h3>Multifunctional Table Decoration Stand for Branding & Information Display</h3>
+                            <p>Designed a multi-purpose stand for event displays and information sharing, combining aesthetics with functional stability for promotional use.</p>
+                            <div class="project-tools">
+                                <span class="tool">Display Design</span>
+                                <span class="tool">Structural Analysis</span>
+                                <span class="tool">3D Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tunnel Design Project -->
+                    <div class="project-card" data-category="clients" data-project="tunnelDesign">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png" alt="Tunnel Design">
+                        </div>
+                        <div class="project-content">
+                            <h3>Tunnel Design for Sucking Mechanism</h3>
+                            <p>Engineered a specialized tunnel structure for suction-based applications with optimized flow dynamics and structural integrity.</p>
+                            <div class="project-tools">
+                                <span class="tool">Aerodynamic Tunnel</span>
+                                <span class="tool">Flow Optimization</span>
+                                <span class="tool">Fluid Dynamics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enclosure Project -->
+                    <div class="project-card" data-category="clients" data-project="enclosure">
+                        <div class="project-image">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203953.png" alt="Enclosure">
+                        </div>
+                        <div class="project-content">
+                            <h3>Enclosure Design for IoT Indoor Air Quality Monitoring System</h3>
+                            <p>This CAD project involved designing and fabricating a custom enclosure housing for an indoor air quality monitoring system deployed in kitchen environments. The enclosure integrates a fabricated PCB (designed in EasyEDA), ESP32 microcontroller, multiple environmental sensors (PMS5003, MQ-7, MQ-2, DHT22), and user interface elements. The design comprises two primary components: a body section housing the PCB and electronic circuitry, and a head section featuring air quality indicator displays showing Good/Moderate/Hazardous states. The enclosure balances critical engineering considerations including sensor exposure to ambient air, cable/wiring routing accessibility, visibility of status displays, and user control inputs (alarm/reset buttons). This protective housing safeguards sensitive electronics while enabling direct communication between hardware and users, ensuring practical deployment in real-world kitchen conditions for long-term PM2.5 and gas monitoring.</p>
+                            <div class="project-tools">
+                                <span class="tool">3D Printing</span>
+                                <span class="tool">PCB Integration</span>
+                                <span class="tool">IoT Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-pagination">
+                    <button class="pagination-arrow left" aria-label="Previous projects" type="button">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <span class="pagination-dot active"></span>
+                    <span class="pagination-dot"></span>
+                    <span class="pagination-dot"></span>
+                    <button class="pagination-arrow right" aria-label="Next projects" type="button">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section> 
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">PROJECTS</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="academic">Academic</button>
-                <button class="filter-btn" data-filter="non-academic">Non-Academic</button>
-                <button class="filter-btn" data-filter="clients">Client</button>
-            </div>
-            <div class="projects-grid">
-                <!-- Academic Projects -->
-                <div class="project-card" data-category="academic" data-project="plasticBoat">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Plastic Extractor Boat/4.png" alt="Plastic Extractor Boat">
-                    </div>
-                    <div class="project-content">
-                        <h3>Plastic Extractor Boat for Environmental Cleanup</h3>
-                        <p>Developed a full-scale plastic-collecting boat for waterway cleanup. Included torque and stress analysis, and tested load capacity through FEA.</p>
-                        <div class="project-tools">
-                            <span class="tool">Environmental Cleanup</span>
-                            <span class="tool">Plastic Collection</span>
-                            <span class="tool">FEA Simulation</span>
-                            <span class="tool">Boat Design</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="academic" data-project="shockWheel">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/10.png" alt="Shock Spoke Wheel Mechanism">
-                    </div>
-                    <div class="project-content">
-                        <h3>Shock Spoke Wheel Mechanism for Enhanced Motorbike Suspension</h3>
-                        <p>Proposed a shock-absorbing wheel design using flexible air spokes to improve motorbike comfort and stability on poorly maintained Sri Lankan roads.</p>
-                        <div class="project-tools">
-                            <span class="tool">Suspension System</span>
-                            <span class="tool">Comfort Improvement</span>
-                            <span class="tool">Motorbike Design</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="academic" data-project="f1Car">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/F1 Car for Simulation Purposes/2.png" alt="F1 Car Simulation">
-                    </div>
-                    <div class="project-content">
-                        <h3>F1 Model for Aerodynamic Performance Analysis Using CFD</h3>
-                        <p>Built a conceptual F1 car model and used SOLIDWORKS Flow Simulation to analyse aerodynamic behaviour, focusing on drag and downforce characteristics.</p>
-                        <div class="project-tools">
-                            <span class="tool">Aerodynamics</span>
-                            <span class="tool">F1</span>
-                            <span class="tool">Flow Simulation</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="academic" data-project="automotiveLab">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Automotive Laboratory Rack/4.png" alt="Automotive Laboratory Rack">
-                    </div>
-                    <div class="project-content">
-                        <h3>Automotive Laboratory Storage Rack</h3>
-                        <p>Engineered a durable storage rack for automotive labs to hold vehicle parts, tools, and fluids, supports up to 80 kg on the upper shelf for safe use.</p>
-                        <div class="project-tools">
-                            <span class="tool">Workshop storage</span>
-                            <span class="tool">Load-bearing desig</span>
-                            <span class="tool">Structural Support</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="academic" data-project="dashboardPanel">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG" alt="Dashboard Panel">
-                    </div>
-                    <div class="project-content">
-                        <h3>Dashboard Panel for Nissan March K11 Engine Test Bench</h3>
-                        <p>Designed a waterjet-cut dashboard panel for the Nissan March K11 engine test bench, providing efficient layout and control access for ECU testing.</p>
-                        <div class="project-tools">
-                            <span class="tool">Engine Testing</span>
-                            <span class="tool">Waterjet Cutting</span>
-                            <span class="tool">ECU Interface</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="academic" data-project="engineTestBench">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png" alt="Engine Test Bench">
-                    </div>
-                    <div class="project-content">
-                        <h3>Engine Test Bench Sample Design for Nissan March K11 with Reprogrammable ECU</h3>
-                        <p>Modelled a simulation-ready sample of the Nissan K11 engine test bench with a reprogrammable ECU to assist an undergraduate research team.</p>
-                        <div class="project-tools">
-                            <span class="tool">Simulation Model</span>
-                            <span class="tool">Engine Analysis</span>
-                            <span class="tool">Reprogrammable ECU</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="academic" data-project="sinkTub">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png" alt="Sink & Tub Design">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sink & Tub with Cupboard for Workshop Use</h3>
-                        <p>Designed a cleaning and storage unit for automotive workshops, combining a sink, tub, and cupboard to handle parts cleaning and item organisation.</p>
-                        <div class="project-tools">
-                            <span class="tool">Workshop Design</span>
-                            <span class="tool">Parts Storage</span>
-                            <span class="tool">Utility Sink</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="academic" data-project="pulleySystem">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png" alt="Pulley System">
-                    </div>
-                    <div class="project-content">
-                        <h3>Pulley Design for Gear Mechanism in Series Hybrid System</h3>
-                        <p>Designed a pulley-driven power transfer system for a 24V motor to the final drive in a Raspberry Pi-controlled series hybrid drivetrain project.</p>
-                        <div class="project-tools">
-                            <span class="tool">Hybrid Drivetrain</span>
-                            <span class="tool">Raspberry Pi</span>
-                            <span class="tool">Power Transmission</span>
-                            <span class="tool">Pulley Design</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="project-card" data-category="academic" data-project="inlineEngine">
-                    <div class="project-image">
-                        <img src="Files/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png" alt="Inline Four Cylinder Engine">
-                    </div>
-                    <div class="project-content">
-                        <h3>Inline Four-Cylinder Engine Sample Design for CFD Analysis</h3>
-                        <p>Developed a simplified inline four-cylinder engine model for early-stage CFD analysis of airflow and thermal patterns using SOLIDWORKS Flow.</p>
-                        <div class="project-tools">
-                            <span class="tool">Engine Modeling</span>
-                            <span class="tool">Cfd Analysis</span>
-                            <span class="tool">SOLIDWORKS Flow</span>
-                            <span class="tool"> Concept Development</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <!-- Non-Academic Projects -->
-                <!-- <div class="project-card" data-category="non-academic">
-                    <div class="project-image">
-                        <img src="https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Robotics Project">
-                    </div>
-                    <div class="project-content">
-                        <h3>Robofest Competition</h3>
-                        <p>Designed and built autonomous robot for national robotics competition with advanced control systems.</p>
-                        <div class="project-tools">
-                            <span class="tool">Arduino</span>
-                            <span class="tool">3D Printing</span>
-                            <span class="tool">Sensors</span>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Client Projects -->
-                <div class="project-card" data-category="clients" data-project="sinhalaCakeCutter">
-                    <div class="project-image">
-                        <img src="Files/Client Projects/Sinhala Letter Cake Cutter/4.png" alt="Cake Cutter">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sinhala Letter Cake Cutters for 3D Printing & Laser Cutting</h3>
-                        <p>Designed Sinhala alphabet cutters for fondant and icing, using 3D printing and laser cutting to help a cake shop create custom decorative text for cakes.</p>
-                        <div class="project-tools">
-                            <span class="tool">3D Printing</span>
-                            <span class="tool">Cake Decorating</span>
-                            <span class="tool">Laser Cutting</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="clients" data-project="tableDecorationStand">
-                    <div class="project-image">
-                        <img src="Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png" alt="Decoration Stand">
-                    </div>
-                    <div class="project-content">
-                        <h3>Multifunctional Table Decoration Stand for Branding & Information Display</h3>
-                        <p>Created a multi-process (3D printed, laser-cut, CNC) table stand to display QR codes, company logos, and contact info for business counters and events.</p>
-                        <div class="project-tools">
-                            <span class="tool">Branding Display</span>
-                            <span class="tool">CNC Fabrication</span>
-                            <span class="tool">QR Stand</span>
-                            <span class="tool">Business Signage</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="clients" data-project="tracRideEnclosure">
-                    <div class="project-image">
-                        <img src="Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png" alt="TracRide Enclosure">
-                    </div>
-                    <div class="project-content">
-                        <h3>Enclosure for Control Unit</h3>
-                        <p>Designed a compact enclosure for a system control unit, optimised for airflow and protection, fabricated using 3D printing for functional testing.</p>
-                        <div class="project-tools">
-                            <span class="tool">Electronics Housing</span>
-                            <span class="tool">Airflow Design</span>
-                            <span class="tool">System Protection</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="clients" data-project="tunnelSuckingMechanism">
-                    <div class="project-image">
-                        <img src="Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png" alt="Tunnel Design">
-                    </div>
-                    <div class="project-content">
-                        <h3>Tunnel Design for Sucking Mechanism</h3>
-                        <p>Modelled a suction tunnel to optimise airflow efficiency in a mechanical system, designed for 3D printing and easy integration in a client prototype.</p>
-                        <div class="project-tools">
-                            <span class="tool">Airflow Optimisation</span>
-                            <span class="tool">Suction System</span>
-                            <span class="tool">3D Printed Part</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="clients" data-project="thermalCollector">
-                    <div class="project-image">
-                        <img src="Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png" alt="Thermal Collector">
-                    </div>
-                    <div class="project-content">
-                        <h3>Thermal Collector for Heat Dissipation Analysis</h3>
-                        <p>Designed a thermal collector and performed CFD simulations in SOLIDWORKS Flow Simulation to analyse heat dissipation for a client’s component design.</p>
-                        <div class="project-tools">
-                            <span class="tool">Heat Dissipation</span>
-                            <span class="tool">Thermal Simulation</span>
-                            <span class="tool">CFD</span>
-                            <span class="tool">Component Cooling</span>
-                        </div>
-                    </div>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-icons">
+                    <a href="mailto:sasangadevmin@gmail.com" class="contact-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/sasanga-athuraliya/" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/sasanga_athuraliya/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="project-pagination">
-                <button class="pagination-arrow left" aria-label="Previous projects" type="button">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <span class="pagination-dot active"></span>
-                <span class="pagination-dot"></span>
-                <span class="pagination-dot"></span>
-                <button class="pagination-arrow right" aria-label="Next projects" type="button">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dreams Section -->
-    <section id="dreams" class="dreams">
-        <div class="container">
-            <h2 class="section-title">Dreams & Goals</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Build a Formula Student Legacy</h3>
-                        <p>I dream of shaping a new era of student motorsport in Sri Lanka by helping build a stronger, more competitive Formula Student team under SAE CINEC. With the groundwork already laid by other pioneering universities, my focus is on elevating performance, engineering standards and international visibility through collaborative design, advanced CAD modelling, strategic project management and high-level engineering communication. This journey is about more than a car. It's about inspiring a generation of engineers to push boundaries with purpose.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Master Aerodynamics in Motorsport</h3>
-                        <p>Driven by my passion for racing and science, I’m committed to mastering vehicle aerodynamics through CFD simulation, flow visualization, and physical prototyping. I aim to analyse complex flow behaviour around wings, diffusers, and underbodies using tools like OpenFOAM, Ansys and Python-based data pipelines. My long-term goal is to work in elite motorsport environments such as Formula 1 and Endurance motorsport, where aerodynamic efficiency and creative problem-solving decide the outcome of every lap.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Achieve CAD & Surfacing Mastery</h3>
-                        <p>Design begins with geometry, but excellence comes from surfacing mastery. I am dedicating myself to the craft of Class A, B and C surfacing using tools like CATIA, Autodesk Alias and SOLIDWORKS. From initial sketches to manufacturable bodywork, I want to create forms that merge structural logic with aesthetic impact. Whether it’s a race car or a road car, my goal is to bring technical clarity and design harmony to every surface.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Become a Design Engineer at a Leading Automotive Manufacturer</h3>
-                        <p>One of my goals is to earn a place as a Design Engineer at a reputed automobile manufacturing company. I envision myself contributing to the future of mobility by designing intelligent, efficient, and emotionally engaging vehicles. With expertise in solid and surface modelling, mechanical integration, and production-oriented design, I want to be part of a team that shapes the next generation of automobiles from concept to the production line.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Engineer for Environmental Impact</h3>
-                        <p>As part of my journey, I’ve volunteered in impactful projects like the Plastic Extractor Boat, where engineering meets environmental responsibility. I believe in creating machines that not only perform but also serve communities and protect ecosystems. My dream is to work on innovations that solve environmental challenges through clean, locally relevant, and sustainable technology integrating systems thinking, practical engineering, and real-world empathy.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
-                            <span class="btn-text">Send Message</span>
-                            <svg class="btn-spinner" viewBox="0 0 24 24" style="display: none;">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <a href="mailto:sasangadevmin@gmail.com" class="contact-link" target="_blank" rel="noopener">
-                            <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
-                            <span>sasangadevmin@gmail.com</span>
-                        </a>
-                        
-                    </div>
-                    <div class="contact-item">
-                        <a href="https://www.linkedin.com/in/sasanga-athuraliya/" class="contact-link" target="_blank" rel="noopener noreferrer">
-                            <span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
-                            <span>LinkedIn: /in/Sasanga-Athuraliya</span>
-                        </a>
-                    </div>
-                    <div class="contact-item">
-                        <a href="https://www.instagram.com/sasanga_athuraliya/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="contact-link" target="_blank" rel="noopener noreferrer">
-                            <span class="contact-icon"><i class="fa-brands fa-instagram"></i></span>
-                            <span>Instagram: @Sasanga-Athuraliya</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Built by MSB-Lakshan</p>
+            <p>&copy; 2025 Built by <a href="https://www.linkedin.com/in/sahan-lakshan-03b869257/" target="_blank" rel="noopener noreferrer" class="footer-link">Sahan Lakshan</a> &amp; me</p>
         </div>
         <button class="back-to-top" id="back-to-top">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -619,7 +644,175 @@
     </footer>
 
     <!-- Project Modals -->
-    
+
+    <!-- Biomorphic Chassis Modal -->
+    <div class="modal-overlay" id="biomorphicChassisModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeProjectModal('biomorphicChassisModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">Biomorphic Generative Design & Lattice-Integrated Formula Student Chassis</h2>
+                <p class="modal-subtitle">Individual Research Project | Topology Optimization & FEA Validation</p>
+            </div>
+            <div class="modal-body">
+                <div class="project-section">
+                    <h3 class="section-heading">The Challenge</h3>
+                    <p class="project-description">
+                        Formula Student regulations demand lightweight yet structurally robust chassis designs. The challenge was to enhance the stiffness-to-weight ratio of a baseline spaceframe design through biomorphic topology optimization while maintaining FS-UK 2025 regulatory compliance and achieving a minimum 2.0 safety factor.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">My Approach</h3>
+                    <p class="project-description">
+                        <strong>Tools & Methodology:</strong><br>
+                        • CATIA V6 for baseline 14-member steel spaceframe CAD with full FS rule validation<br>
+                        • Sectioned topology optimization (front, mid, rear sections) for targeted weight reduction<br>
+                        • Material comparison: AISI 4130 vs Ti-6Al-4V LPBF Post-HIP for optimal strength-to-weight<br>
+                        • Comprehensive FEA validation across 7 load cases (torsional stiffness, bending, von Mises stress, impact, buckling)<br>
+                        • 1:3 scale 3D-printed geometric validation model for design feasibility confirmation
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Results & Outcomes</h3>
+                    <p class="project-description">
+                        ✓ Baseline CAD: Completed with zero FS-UK violations<br>
+                        ✓ Methodology Validation: Research framework successfully established and documented<br>
+                        ✓ FEA Validation: All 7 load cases passed with 2.0+ safety factor<br>
+                        ✓ 3D Prototype: Printed scale model confirmed design feasibility<br>
+                        ✓ Target Progress: Partial topology optimization results despite computational complexity
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Key Skills Demonstrated</h3>
+                    <p class="project-description">
+                        CAD Design (CATIA V6) • FEA Analysis • Topology Optimization • Research Methodology • Regulatory Compliance • Materials Selection • 3D Modeling & Simulation • Technical Problem-Solving
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Project Images</h3>
+                    <div class="project-images">
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image11.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image11.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image12.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image13.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image14.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image15.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image16.png" alt="Biomorphic Chassis">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'biomorphicChassisImages')">
+                            <img src="Projects/Academic Projects/FYRP/Image17.png" alt="Biomorphic Chassis">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PhoneSim Modal -->
+    <div class="modal-overlay" id="phoneSimModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeProjectModal('phoneSimModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">PhoneSim: Smartphone-Integrated Driving Simulation Controller</h2>
+                <p class="modal-subtitle">Final Year Group Project | Engineering Director | Multi-disciplinary System Integration</p>
+            </div>
+            <div class="modal-body">
+                <div class="project-section">
+                    <h3 class="section-heading">The Challenge</h3>
+                    <p class="project-description">
+                        Create an affordable, portable driving simulation system that leverages smartphone technology to provide realistic steering and pedal inputs for gaming and training applications. The system needed to integrate multiple hardware components (steering wheel, 3-pedal assembly, smartphone) with embedded systems and game software.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">My Approach & Role</h3>
+                    <p class="project-description">
+                        <strong>Position: Engineering Director</strong><br>
+                        Led mechanical design, system architecture, and validation across a 5-person multi-disciplinary team.<br><br>
+                        <strong>Key Deliverables:</strong><br>
+                        • Comprehensive CAD development (3 design generations): Gen 1.1 (Concept) → Gen 1.2 (Refinement) → Gen 1.3 (Design-for-Manufacture)<br>
+                        • Mechanical design of custom steering wheel and 3-pedal assembly<br>
+                        • ESP32-S3 embedded controller architecture bridging smartphone IMU to Windows game protocols<br>
+                        • System integration and validation planning<br>
+                        • Team coordination across mechanical, electrical, and software disciplines
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Results & Outcomes</h3>
+                    <p class="project-description">
+                        ✓ Functional Prototype: Completed and validated with pedal sensing working<br>
+                        ✓ Steering Input: Calibrated for responsive game control<br>
+                        ✓ Game Integration: Successful integration with simulation software<br>
+                        ✓ 3 Design Iterations: Progressed from concept to manufacture-ready design<br>
+                        ✓ Team Delivery: Successfully led multi-disciplinary team to project completion<br>
+                        ✓ Technical Documentation: Comprehensive CAD files and validation reports
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Key Skills Demonstrated</h3>
+                    <p class="project-description">
+                        Embedded Systems (ESP32-S3) • Mechanical CAD Design • System Architecture • Leadership & Team Coordination • Multi-disciplinary Integration • IoT & IMU Systems • Game Controller Protocol • Project Management • Technical Communication • Design Iteration
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Project Images</h3>
+                    <div class="project-images">
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-23 215031.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-23 230033.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060808.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060816.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060835.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060926.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060934.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060945.png" alt="PhoneSim">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'phoneSimImages')">
+                            <img src="Projects/Academic Projects/FYGP/Screenshot 2026-09-28 060954.png" alt="PhoneSim">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Automotive Laboratory Rack Modal -->
     <div class="modal-overlay" id="automotiveLabModal">
         <div class="modal-content">
@@ -643,28 +836,16 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'automotiveLabImages')">
-                            <img src="Files/Academic Projects/Automotive Laboratory Rack/1.png" alt="Front View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Automotive Laboratory Rack/1.png" alt="Front View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'automotiveLabImages')">
-                            <img src="Files/Academic Projects/Automotive Laboratory Rack/2.png" alt="Side View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Automotive Laboratory Rack/2.png" alt="Side View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'automotiveLabImages')">
-                            <img src="Files/Academic Projects/Automotive Laboratory Rack/3.png" alt="Top View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Automotive Laboratory Rack/3.png" alt="Top View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'automotiveLabImages')">
-                            <img src="Files/Academic Projects/Automotive Laboratory Rack/4.png" alt="Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Automotive Laboratory Rack/4.png" alt="Assembly">
                         </div>
                     </div>
                 </div>
@@ -696,22 +877,13 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'dashboardPanelImages')">
-                            <img src="Files/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Dashboard Panel for Engine Test Bench/1.JPG" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'dashboardPanelImages')">
-                            <img src="Files/Academic Projects/Dashboard Panel for Engine Test Bench/2.JPG" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Dashboard Panel for Engine Test Bench/2.JPG" alt="Detail View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'dashboardPanelImages')">
-                            <img src="Files/Academic Projects/Dashboard Panel for Engine Test Bench/Screenshot 2024-10-16 100713.png" alt="Interface">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Dashboard Panel for Engine Test Bench/Screenshot 2024-10-16 100713.png" alt="Interface">
                         </div>
                     </div>
                 </div>
@@ -743,22 +915,13 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'engineTestBenchImages')">
-                            <img src="Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png" alt="Main Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054031.png" alt="Main Assembly">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'engineTestBenchImages')">
-                            <img src="Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054052.png" alt="Component View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054052.png" alt="Component View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'engineTestBenchImages')">
-                            <img src="Files/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054115.png" alt="Detailed Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Engine Test Bench Sample Design/Screenshot 2025-07-30 054115.png" alt="Detailed Assembly">
                         </div>
                     </div>
                 </div>
@@ -790,52 +953,28 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095250.png" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095520.png" alt="Side View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095520.png" alt="Side View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095706.png" alt="Top View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095706.png" alt="Top View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095901.png" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095901.png" alt="Detail View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100048.png" alt="Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100048.png" alt="Assembly">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100202.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100202.png" alt="Final Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095737.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 095737.png" alt="Final Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinkTubImages')">
-                            <img src="Files/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100237.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Sink & Tub with Cupboard/Screenshot 2024-10-09 100237.png" alt="Final Design">
                         </div>
                     </div>
                 </div>
@@ -866,16 +1005,10 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'pulleySystemImages')">
-                            <img src="Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054356.png" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'pulleySystemImages')">
-                            <img src="Files/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054409.png" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Pulley for Gear Mechanism System/Screenshot 2025-07-30 054409.png" alt="Detail View">
                         </div>
                     </div>
                 </div>
@@ -886,10 +1019,10 @@
     <!-- Client Project Modals -->
     
     <!-- Sinhala Letter Cake Cutter Modal -->
-    <div class="modal-overlay" id="sinhalaCakeCutterModal">
+    <div class="modal-overlay" id="sinhalaLettersModal">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close-btn" onclick="closeProjectModal('sinhalaCakeCutterModal')">
+                <button class="close-btn" onclick="closeProjectModal('sinhalaLettersModal')">
                     <i class="fas fa-times"></i>
                 </button>
                 <h2 class="modal-title">Sinhala Letter Cake Cutters for 3D Printing & Laser Cutting</h2>
@@ -907,70 +1040,37 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/1.png" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/2.png" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/2.png" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/2.png" alt="Detail View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/3.png" alt="Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/3.png" alt="Assembly">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/4.png" alt="Component View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/4.png" alt="Component View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/5.png" alt="Detailed Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/5.png" alt="Detailed Assembly">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/6.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/6.png" alt="Final Design">
                         </div>
                                                 <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/7.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/7.png" alt="Final Design">
                         </div>
                                                 <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/8.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/9.png" alt="Final Design">
                         </div>
                                                 <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/9.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/9.png" alt="Final Design">
                         </div>
                                                 <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/10.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/10.png" alt="Final Design">
                         </div>
                                                 <div class="project-image" onclick="openImageViewer(this, 'sinhalaCakeCutterImages')">
-                            <img src="Files/Client Projects/Sinhala Letter Cake Cutter/11.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Sinhala Letter Cake Cutter/11.png" alt="Final Design">
                         </div>
                     </div>
                 </div>
@@ -981,10 +1081,10 @@
     </div>
 
     <!-- Table Decoration Stand Modal -->
-    <div class="modal-overlay" id="tableDecorationStandModal">
+    <div class="modal-overlay" id="tableStandModal">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close-btn" onclick="closeProjectModal('tableDecorationStandModal')">
+                <button class="close-btn" onclick="closeProjectModal('tableStandModal')">
                     <i class="fas fa-times"></i>
                 </button>
                 <h2 class="modal-title">Multifunctional Table Decoration Stand for Branding & Information Display</h2>
@@ -1002,22 +1102,13 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'tableDecorationStandImages')">
-                            <img src="Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052452.png" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tableDecorationStandImages')">
-                            <img src="Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052510.png" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052510.png" alt="Detail View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tableDecorationStandImages')">
-                            <img src="Files/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052528.png" alt="Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Table Decoration Stand/Screenshot 2025-07-30 052528.png" alt="Assembly">
                         </div>
                     </div>
                 </div>
@@ -1048,22 +1139,13 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'tracRideEnclosureImages')">
-                            <img src="Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051820.png" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tracRideEnclosureImages')">
-                            <img src="Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051833.png" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 051833.png" alt="Detail View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tracRideEnclosureImages')">
-                            <img src="Files/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 052110.png" alt="Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/TracRide Enclosure/Screenshot 2025-07-30 052110.png" alt="Assembly">
                         </div>
                     </div>
                 </div>
@@ -1073,10 +1155,10 @@
     </div>
 
     <!-- Tunnel for Sucking Mechanism Modal -->
-    <div class="modal-overlay" id="tunnelSuckingMechanismModal">
+    <div class="modal-overlay" id="tunnelDesignModal">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close-btn" onclick="closeProjectModal('tunnelSuckingMechanismModal')">
+                <button class="close-btn" onclick="closeProjectModal('tunnelDesignModal')">
                     <i class="fas fa-times"></i>
                 </button>
                 <h2 class="modal-title">Tunnel Design for Sucking Mechanism</h2>
@@ -1094,28 +1176,16 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'tunnelSuckingMechanismImages')">
-                            <img src="Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png" alt="Main View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052826.png" alt="Main View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tunnelSuckingMechanismImages')">
-                            <img src="Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052843.png" alt="Detail View">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052843.png" alt="Detail View">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tunnelSuckingMechanismImages')">
-                            <img src="Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052917.png" alt="Assembly">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052917.png" alt="Assembly">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'tunnelSuckingMechanismImages')">
-                            <img src="Files/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052925.png" alt="Final Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Tunnel for Sucking Mechanism/Screenshot 2025-07-30 052925.png" alt="Final Design">
                         </div>
                     </div>
                 </div>
@@ -1145,39 +1215,114 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'thermalCollectorImages')">
-                            <img src="Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png" alt="Thermal Collector Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054802.png" alt="Thermal Collector Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'thermalCollectorImages')">
-                            <img src="Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054818.png" alt="Thermal Collector Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054818.png" alt="Thermal Collector Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'thermalCollectorImages')">
-                            <img src="Files/Client Projects/Thermal Collector/Screenshot 2025-07-30 054823.png" alt="Thermal Collector Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Thermal Collector/Screenshot 2025-07-30 054823.png" alt="Thermal Collector Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'thermalCollectorImages')">
-                            <img src="Files/Client Projects/Thermal Collector/1.jpg" alt="Thermal Collector Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Thermal Collector/1.jpg" alt="Thermal Collector Design">
                         </div>
                          <div class="project-image" onclick="openImageViewer(this, 'thermalCollectorImages')">
-                            <img src="Files/Client Projects/Thermal Collector/2.jpg" alt="Thermal Collector Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Client Projects/Thermal Collector/2.jpg" alt="Thermal Collector Design">
                         </div>
                     </div>
                 </div>
 
 
+            </div>
+        </div>
+    </div>
+
+    <!-- Air Duct Modal -->
+    <div class="modal-overlay" id="airDuctModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeProjectModal('airDuctModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">Air Duct Design for Electric Tray Dryer</h2>
+                <p class="modal-subtitle">Aerodynamic Design & Thermal Management</p>
+            </div>
+            <div class="modal-body">
+                <div class="project-section">
+                    <h3 class="section-heading">Project Overview</h3>
+                    <p class="project-description">
+                        This CAD project involved designing a custom transition air duct for an energy-optimized electric tray dryer for black pepper drying. The duct connects an AKKO STAR 12038 circulation fan (120×120×38mm, 220V AC, 78 CFM airflow) to the heating element enclosure. Using SolidWorks CAD software, a smooth circular-to-square geometric transition was created and fabricated via 3D printing in black PLA. This design minimizes airflow leakage and pressure drop while maximizing heat transfer efficiency. The duct enhances the coupling between the fan's 2500 RPM airflow generation and the 1500W heating element, contributing significantly to the dryer's overall energy optimization strategy and thermal performance.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Project Images</h3>
+                    <div class="project-images">
+                        <div class="project-image" onclick="openImageViewer(this, 'airDuctImages')">
+                            <img src="Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214853.png" alt="Air Duct Design">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'airDuctImages')">
+                            <img src="Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214901.png" alt="Air Duct Design">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'airDuctImages')">
+                            <img src="Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214910.png" alt="Air Duct Design">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'airDuctImages')">
+                            <img src="Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214916.png" alt="Air Duct Design">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'airDuctImages')">
+                            <img src="Projects/Client Projects/Air Duct Design for Electric Tray Dryer/Screenshot 2026-08-22 214923.png" alt="Air Duct Design">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enclosure Modal -->
+    <div class="modal-overlay" id="enclosureModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeProjectModal('enclosureModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">Enclosure Design for IoT Indoor Air Quality Monitoring System</h2>
+                <p class="modal-subtitle">Enclosure Design | IoT Air Quality Monitoring</p>
+            </div>
+            <div class="modal-body">
+                <div class="project-section">
+                    <h3 class="section-heading">Project Overview</h3>
+                    <p class="project-description">This CAD project involved designing and fabricating a custom enclosure housing for an indoor air quality monitoring system deployed in kitchen environments. The enclosure integrates a fabricated PCB (designed in EasyEDA), ESP32 microcontroller, multiple environmental sensors (PMS5003, MQ-7, MQ-2, DHT22), and user interface elements. The design comprises two primary components: a body section housing the PCB and electronic circuitry, and a head section featuring air quality indicator displays showing Good/Moderate/Hazardous states. The enclosure balances critical engineering considerations including sensor exposure to ambient air, cable/wiring routing accessibility, visibility of status displays, and user control inputs (alarm/reset buttons). This protective housing safeguards sensitive electronics while enabling direct communication between hardware and users, ensuring practical deployment in real-world kitchen conditions for long-term PM2.5 and gas monitoring.</p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Skills</h3>
+                    <p class="project-description">3D Printing, PCB Integration, IoT Systems</p>
+                </div>
+
+                <div class="project-section">
+                    <h3 class="section-heading">Project Images</h3>
+                    <div class="project-images">
+                        <div class="project-image" onclick="openImageViewer(this, 'enclosureImages')">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203939.png" alt="Enclosure">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'enclosureImages')">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203946.png" alt="Enclosure">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'enclosureImages')">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 203953.png" alt="Enclosure">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'enclosureImages')">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 204023.png" alt="Enclosure">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'enclosureImages')">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 204032.png" alt="Enclosure">
+                        </div>
+                        <div class="project-image" onclick="openImageViewer(this, 'enclosureImages')">
+                            <img src="Projects/Client Projects/Enclosure Design for IoT Indoor Air Quality Monitoring System/Screenshot 2026-08-24 204042.png" alt="Enclosure">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1205,76 +1350,40 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/1.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/1.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/2.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/2.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/3.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/3.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/4.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/4.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/5.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/5.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/6.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/6.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/7.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/7.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/9.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/9.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/10.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/10.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/11.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/11.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/12.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/12.png" alt="F1 Car Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'f1CarImages')">
-                            <img src="Files/Academic Projects/F1 Car for Simulation Purposes/13.png" alt="F1 Car Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/F1 Car for Simulation Purposes/13.png" alt="F1 Car Design">
                         </div>
                         
                     </div>
@@ -1306,28 +1415,16 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'inlineEngineImages')">
-                            <img src="Files/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png" alt="Engine Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/1.png" alt="Engine Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'inlineEngineImages')">
-                            <img src="Files/Academic Projects/Inline Four Cylinder Engine Sample Design/2.png" alt="Engine Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/2.png" alt="Engine Design">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'inlineEngineImages')">
-                            <img src="Files/Academic Projects/Inline Four Cylinder Engine Sample Design/3.png" alt="Engine Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/3.png" alt="Engine Design">
                         </div>  
                         <div class="project-image" onclick="openImageViewer(this, 'inlineEngineImages')">
-                            <img src="Files/Academic Projects/Inline Four Cylinder Engine Sample Design/4.jpg" alt="Engine Design">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Inline Four Cylinder Engine Sample Design/4.jpg" alt="Engine Design">
                         </div>
                     </div>
                 </div>
@@ -1358,88 +1455,46 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/1.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/1.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/2.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/2.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/3.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/3.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/4.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/4.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/5.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/5.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/6.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/6.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/7.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/7.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/8.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/8.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/9.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/9.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/10.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/10.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/11.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/11.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/12.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/12.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/13.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/13.png" alt="Plastic Extractor Boat">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'plasticBoatImages')">
-                            <img src="Files/Academic Projects/Plastic Extractor Boat/14.png" alt="Plastic Extractor Boat">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Plastic Extractor Boat/14.png" alt="Plastic Extractor Boat">
                         </div>
                         
                         
@@ -1472,64 +1527,34 @@
                     <h3 class="section-heading">Project Images</h3>
                     <div class="project-images">
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/1.png" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/1.png" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/2.png" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/2.png" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/3.png" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/3.png" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/4.png" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/4.png" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/5.jpg" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/5.jpg" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/6.jpg" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/6.jpg" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/7.jpg" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/7.jpg" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/8.jpg" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/8.jpg" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/9.jpg" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/9.jpg" alt="Shock Spoke Wheel">
                         </div>
                         <div class="project-image" onclick="openImageViewer(this, 'shockWheelImages')">
-                            <img src="Files/Academic Projects/Shock Spoke Wheel Mechanism/10.png" alt="Shock Spoke Wheel">
-                            <div class="image-overlay">
-                                <i class="fas fa-expand"></i>
-                            </div>
+                            <img src="Projects/Academic Projects/Shock Spoke Wheel Mechanism/10.png" alt="Shock Spoke Wheel">
                         </div>
                         
                     </div>

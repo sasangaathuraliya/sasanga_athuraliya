@@ -1,0 +1,9 @@
+# Editor / tooling config (local to one machine, not part of the site)
+.claude/
+.vscode/
+
+# OS cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
